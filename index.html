@@ -1,200 +1,266 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trilhas de Estudo</title>
-    <!-- Importando a fonte Poppins do Google Fonts -->
+    <title>Sobre Minha Escola</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <!-- Importando ícones do Font Awesome para a lupa -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Estilos do corpo */
+        /* Estilo global e fundo degradê */
         body {
+            margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #001F3F, #000814);
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            color: #FFFFFF;
+            background: linear-gradient(to bottom, #00224D, #000);
+            color: white;
+            padding: 0 20px;
         }
 
-        /* Menu Hambúrguer */
-        .menu-hamburger {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 30px;
-            height: 25px;
+        header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* Estilo do menu hamburguer */
+        .menu-hamburguer {
+            cursor: pointer;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            z-index: 2;
         }
 
-        .menu-hamburger div {
-            width: 100%;
-            height: 4px;
-            background-color: #FFFFFF;
-            border-radius: 2px;
-            transition: all 0.3s ease;
+        .menu-hamburguer div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.4s;
         }
 
-        /* Transformação do menu ao ser clicado */
-        .menu-hamburger.active div:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .menu-hamburger.active div:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-hamburger.active div:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* Menu de Navegação */
+        /* Estilo do menu lateral */
         nav {
+            display: none;
             position: absolute;
-            top: 0;
-            right: -250px; /* Escondido inicialmente */
-            width: 250px;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            padding-top: 60px;
-            transition: right 0.3s ease;
-        }
-
-        nav.active {
-            right: 0;
+            top: 60px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 10;
         }
 
         nav ul {
             list-style: none;
-            padding: 0 20px;
+            padding: 0;
+            margin: 0;
         }
 
         nav ul li {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         nav ul li a {
             text-decoration: none;
-            font-size: 18px;
-            display: block;
-            transition: color 0.3s ease;
-        }
-
-        /* Estilos específicos para cada item */
-        nav ul li:first-child a {
             color: #EB9B00;
             font-weight: bold;
         }
 
-        nav ul li:nth-child(2) a {
-            color: #001F3F;
-            text-transform: uppercase;
+        nav ul li:nth-child(2),
+        nav ul li:nth-child(3),
+        nav ul li:nth-child(4),
+        nav ul li:nth-child(5),
+        nav ul li:nth-child(6),
+        nav ul li:nth-child(7) {
+            color: #00224D;
         }
 
-        nav ul li:nth-child(3) a {
-            color: #001F3F;
-            text-transform: lowercase;
-            padding-left: 15px;
-        }
-
-        nav ul li:nth-child(4) a {
-            color: #001F3F;
-            text-transform: uppercase;
-        }
-
-        nav ul li:nth-child(5) a,
-        nav ul li:nth-child(6) a,
-        nav ul li:nth-child(7) a {
-            color: #001F3F;
-            text-transform: none;
-        }
-
-        /* Caixa Flutuante Central */
-        .floating-box {
-            width: 150px;
-            height: 150px;
-            border: 2px solid #FFFFFF;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
+        /* Caixa flutuante com lupa */
+        .search-box {
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(5px);
+            border: 2px solid white;
+            width: 80%;
+            max-width: 300px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 20px auto;
         }
 
-        .floating-box .fa-search {
-            color: #FFFFFF;
-            font-size: 40px;
+        .search-box i {
+            font-size: 20px;
+            color: white;
         }
 
-        /* Responsividade */
+        /* Título e parágrafo */
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        /* Imagem central */
+        .central-image {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        /* Seção de estudantes */
+        .students {
+            background-color: #D3D3D3;
+            padding: 20px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .student {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .student img {
+            width: 80px;
+            height: 80px;
+            background-color: #00224D;
+            border-radius: 50%;
+        }
+
+        .student span {
+            margin-top: 5px;
+            color: #00224D;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        /* Responsividade - Ajustes para dispositivos móveis */
         @media (max-width: 600px) {
-            .floating-box {
-                width: 120px;
-                height: 120px;
+            .students {
+                flex-direction: column;
+                align-items: center;
             }
 
-            nav {
-                width: 200px;
+            .student {
+                margin-bottom: 20px;
             }
+        }
 
-            nav ul li a {
-                font-size: 16px;
-            }
+        /* Mostra o menu quando clicado */
+        .menu-hamburguer.active + nav {
+            display: block;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Menu Hambúrguer -->
-    <div class="menu-hamburger" id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+    <!-- Cabeçalho com menu hamburguer -->
+    <header>
+        <div class="menu-hamburguer" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Trilhas de estudo</a></li>
+                <li><a href="#">ENSINO FUNDAMENTAL</a></li>
+                <li><a href="#">scratch</a></li>
+                <li><a href="#">ENSINO MÉDIO</a></li>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Navegação -->
-    <nav id="nav-menu">
-        <ul>
-            <li><a href="#">Trilhas de estudo</a></li>
-            <li><a href="#">ENSINO FUNDAMENTAL</a></li>
-            <li><a href="#">scratch</a></li>
-            <li><a href="#">ENSINO MÉDIO</a></li>
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-        </ul>
-    </nav>
-
-    <!-- Caixa Flutuante com Lupa -->
-    <div class="floating-box">
+    <!-- Caixa de busca flutuante -->
+    <div class="search-box">
         <i class="fas fa-search"></i>
     </div>
 
-    <!-- JavaScript para o Menu Hambúrguer -->
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
+    <!-- Conteúdo principal -->
+    <main>
+        <h1>Sobre minha escola</h1>
+        <p>terá um texto aqui</p>
+        <img class="central-image" src="https://via.placeholder.com/400x300?text=Estudante+com+Livro+e+Laptop" alt="Pessoa estudando">
+    </main>
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+    <!-- Seção dos estudantes -->
+    <section class="students">
+        <div class="student">
+            <img src="https://via.placeholder.com/80" alt="Estudante 1">
+            <span>Nome 1</span>
+        </div>
+        <div class="student">
+            <img src="https://via.placeholder.com/80" alt="Estudante 2">
+            <span>Nome 2</span>
+        </div>
+        <div class="student">
+            <img src="https://via.placeholder.com/80" alt="Estudante 3">
+            <span>Nome 3</span>
+        </div>
+        <div class="student">
+            <img src="https://via.placeholder.com/80" alt="Estudante 4">
+            <span>Nome 4</span>
+        </div>
+        <div class="student">
+            <img src="https://via.placeholder.com/80" alt="Estudante 5">
+            <span>Nome 5</span>
+        </div>
+        <div class="student">
+            <img src="https://via.placeholder.com/80" alt="Estudante 6">
+            <span>Nome 6</span>
+        </div>
+        <div class="student">
+            <img src="https://via.placeholder.com/80" alt="Estudante 7">
+            <span>Nome 7</span>
+        </div>
+        <div class="student">
+            <img src="https://via.placeholder.com/80" alt="Estudante 8">
+            <span>Nome 8</span>
+        </div>
+        <div class="student">
+            <img src="https://via.placeholder.com/80" alt="Estudante 9">
+            <span>Nome 9</span>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Minha Escola</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu-hamburguer');
+            menu.classList.toggle('active');
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        }
     </script>
+
+    <!-- Script para o ícone da lupa -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
+
 </html>
