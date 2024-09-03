@@ -1,14 +1,200 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>l3f1s1c4t</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <title>Trilhas de Estudo</title>
+    <!-- Importando a fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <!-- Importando ícones do Font Awesome para a lupa -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos do corpo */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #001F3F, #000814);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: #FFFFFF;
+        }
+
+        /* Menu Hambúrguer */
+        .menu-hamburger {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .menu-hamburger div {
+            width: 100%;
+            height: 4px;
+            background-color: #FFFFFF;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Transformação do menu ao ser clicado */
+        .menu-hamburger.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-hamburger.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Menu de Navegação */
+        nav {
+            position: absolute;
+            top: 0;
+            right: -250px; /* Escondido inicialmente */
+            width: 250px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+            transition: right 0.3s ease;
+        }
+
+        nav.active {
+            right: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0 20px;
+        }
+
+        nav ul li {
+            margin-bottom: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        /* Estilos específicos para cada item */
+        nav ul li:first-child a {
+            color: #EB9B00;
+            font-weight: bold;
+        }
+
+        nav ul li:nth-child(2) a {
+            color: #001F3F;
+            text-transform: uppercase;
+        }
+
+        nav ul li:nth-child(3) a {
+            color: #001F3F;
+            text-transform: lowercase;
+            padding-left: 15px;
+        }
+
+        nav ul li:nth-child(4) a {
+            color: #001F3F;
+            text-transform: uppercase;
+        }
+
+        nav ul li:nth-child(5) a,
+        nav ul li:nth-child(6) a,
+        nav ul li:nth-child(7) a {
+            color: #001F3F;
+            text-transform: none;
+        }
+
+        /* Caixa Flutuante Central */
+        .floating-box {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #FFFFFF;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .floating-box .fa-search {
+            color: #FFFFFF;
+            font-size: 40px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .floating-box {
+                width: 120px;
+                height: 120px;
+            }
+
+            nav {
+                width: 200px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Olá! Mundo</h1>
-    
+
+    <!-- Menu Hambúrguer -->
+    <div class="menu-hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Navegação -->
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="#">Trilhas de estudo</a></li>
+            <li><a href="#">ENSINO FUNDAMENTAL</a></li>
+            <li><a href="#">scratch</a></li>
+            <li><a href="#">ENSINO MÉDIO</a></li>
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+        </ul>
+    </nav>
+
+    <!-- Caixa Flutuante com Lupa -->
+    <div class="floating-box">
+        <i class="fas fa-search"></i>
+    </div>
+
+    <!-- JavaScript para o Menu Hambúrguer -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
