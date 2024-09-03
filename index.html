@@ -11,16 +11,18 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, #00224D, #000);
+            background: linear-gradient(to bottom, #003366, #000);
             color: white;
             padding: 0 20px;
         }
 
+        /* Header com fundo azul mais escuro */
         header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
+            background-color: #00224D;
             padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         /* Estilo do menu hamburguer */
@@ -28,12 +30,15 @@
             cursor: pointer;
             display: flex;
             flex-direction: column;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         .menu-hamburguer div {
-            width: 30px;
+            width: 25px;
             height: 3px;
-            background-color: white;
+            background-color: #00224D;
             margin: 4px 0;
             transition: 0.4s;
         }
@@ -44,7 +49,7 @@
             position: absolute;
             top: 60px;
             right: 20px;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: white;
             padding: 15px;
             border-radius: 10px;
             z-index: 10;
@@ -89,11 +94,6 @@
             margin: 20px auto;
         }
 
-        .search-box i {
-            font-size: 20px;
-            color: white;
-        }
-
         /* Título e parágrafo */
         h1 {
             text-align: center;
@@ -120,7 +120,7 @@
             padding: 20px 10px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: space-between;
         }
 
         .student {
@@ -128,6 +128,7 @@
             flex-direction: column;
             align-items: center;
             margin: 10px;
+            width: 30%;
         }
 
         .student img {
@@ -160,7 +161,7 @@
             }
 
             .student {
-                margin-bottom: 20px;
+                width: 100%;
             }
         }
 
@@ -175,6 +176,7 @@
 
     <!-- Cabeçalho com menu hamburguer -->
     <header>
+        <div>Logo</div>
         <div class="menu-hamburguer" onclick="toggleMenu()">
             <div></div>
             <div></div>
